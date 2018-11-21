@@ -35,7 +35,6 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
-    // BONUS: Once complete, try to make your code as DRY as possible through the use of functions
     function addMovie(movie) {
       var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
       $.ajax({
@@ -44,15 +43,11 @@
       }).then(function(response) {
         console.log(response);
         if(response.Response !== "False") {
-          // Create and save a reference to new empty table row
           var tableRow = $("<tr>");
-          // Create and save references to 3 td elements containing the Title, Year, and Actors from the AJAX response object
           var title = $("<td>").text(response.Title);
           var year = $("<td>").text(response.Year);
           var actors = $("<td>").text(response.Actors);
-          // Append the td elements to the new table row
           tableRow.append(title, year, actors);
-          // Append the table row to the tbody element
           $("tbody").append(tableRow); 
         } else {
           alert("Movie not found!");
