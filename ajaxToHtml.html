@@ -61,9 +61,8 @@
     }
 
     $("#submitMovie").on("click", function() {
-      addMovie($("#movieInput").val());
-      var movie = $("#movieInput").val();
-      movie = movie.split(" ").join("+");
+      var movie = $("#movieInput").val().split(" ").join("+");
+      addMovie(movie);
       $("#movieInput").val("");
     });
     </script>
